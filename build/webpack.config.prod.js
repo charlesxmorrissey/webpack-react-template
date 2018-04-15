@@ -11,7 +11,6 @@ const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 
 const webpackProdConfig = webpackMerge(webpackConfig, {
   mode: 'production',
-
   devtool: config.appProdSourceMap ? 'source-map' : false,
 
   output: {
