@@ -19,8 +19,6 @@ const webpackConfig = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@': config.appSrc,
-      assets: config.appAssets,
-      components: config.appComponents,
     },
     modules: ['node_modules'],
   },
