@@ -1,0 +1,10 @@
+.hello {
+  --accentColor: rebeccapurple;
+  --borderWidth: 16px;
+}
+
+.hello__title {
+  background: gold;
+  border: var(--borderWidth) solid var(--accentColor);
+  font-weight: 300;
+}
