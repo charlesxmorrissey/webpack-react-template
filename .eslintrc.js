@@ -2,10 +2,9 @@
 
 module.exports = {
   root: true,
-
   parser: 'babel-eslint',
-
   plugins: ['import', 'jsx-a11y', 'react'],
+  extends: ['standard', 'standard-react', 'plugin:prettier/recommended'],
 
   env: {
     browser: true,
@@ -28,8 +27,6 @@ module.exports = {
       experimentalObjectRestSpread: true,
     },
   },
-
-  extends: ['standard', 'standard-react', 'plugin:prettier/recommended'],
 
   rules: {
     'no-console': 0,
