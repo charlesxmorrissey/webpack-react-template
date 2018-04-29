@@ -5,6 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 .vscode
 .idea
+.vscode
 
 # dependencies
 node_modules/
