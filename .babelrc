@@ -1,19 +1,37 @@
 {
-  'presets': [
-    ['env', {
-      'modules': false,
-      'targets': {
-        'browsers': ['> 1%', 'last 2 versions', 'not ie <= 11'],
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": ["> 1%", "last 2 versions", "not ie <= 11"]
+        }
       }
-    }],
-    'stage-2',
-    'react'
+    ],
+    "stage-2",
+    "react"
   ],
   "comments": false,
-  'env': {
-    'test': {
-      'presets': [
-        ['env', { 'targets': { 'node': 'current' }}]
+  "plugins": [
+    [
+      "babel-plugin-styled-components",
+      {
+        "displayName": false
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
       ]
     }
   }

@@ -1,12 +1,32 @@
-@custom-media --viewport-medium (max-width: 1000px);
+@import-normalize;
 
-.app {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+@custom-media --viewport-medium (max-width: 1000px);
+@custom-selector :--heading h1, h2, h3, h4, h5, h6;
+
+:root {
+  --bgColor: tomato;
+  --fontColor: #000;
+  --mainColor: yellowgreen;
+}
+
+body {
+  background: var(--bgColor);
+  color: var(--fontColor);
+  font-family: system-ui;
+}
+
+:--heading {
+  color: var(--bgColor);
 
   @media (--viewport-medium) {
-    background: var(--mainColor);
+    color: var(--fontColor);
+  }
+}
+
+a {
+  color: rebeccapurple;
+
+  &:hover {
+    color: yellowgreen;
   }
 }
