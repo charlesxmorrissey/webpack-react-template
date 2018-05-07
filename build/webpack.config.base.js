@@ -40,6 +40,7 @@ const webpackConfig = {
         enforce: 'pre',
         options: {
           formatter: eslintFormatter,
+          cache: true,
         },
       },
       {

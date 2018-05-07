@@ -32,12 +32,6 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
                 sourceMap: config.appProdSourceMap,
               },
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                sourceMap: config.appProdSourceMap,
-              },
-            },
           ],
         }),
       },

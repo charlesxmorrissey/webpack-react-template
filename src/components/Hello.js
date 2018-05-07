@@ -11,6 +11,7 @@ const Wrapper = styled.section`
   align-items: center;
   display: flex;
   flex-direction: column;
+  transform: translate3d(10px, 100px, 10px);
   width: 100%;
 `
 
@@ -22,17 +23,22 @@ const CounterDisplay = styled.span`
 `
 
 const Button = styled.button`
-  background-color: blue;
+  background-color: ${(props) => (props.primary ? 'green' : 'blue')};
   border-radius: 6px;
   border: 0;
   color: #fff;
   font-size: 14px;
   font-weight: 300;
-  margin: 24px 0;
+  margin: 12px 0;
   padding: 12px 24px;
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
+`
+
+const BorderedButton = Button.extend`
+  color: #ccc;
+  border: 3px solid red;
 `
 
 class Hello extends Component {
@@ -58,6 +64,10 @@ class Hello extends Component {
         <Title>{this.props.children}</Title>
         <CounterDisplay>{this.state.counter}</CounterDisplay>
         <Button onClick={this.increment_}>Count</Button>
+        <Button primary onClick={this.increment_}>
+          Count
+        </Button>
+        <BorderedButton onClick={this.increment_}>Count</BorderedButton>
       </Wrapper>
     )
   }

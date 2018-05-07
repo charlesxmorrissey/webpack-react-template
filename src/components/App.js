@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Hello from './Hello'
-import styled from 'styled-components'
+import styled, { ThemeProvider } from 'styled-components'
+import { theme } from '@/themes/default'
 
 const Wrapper = styled.div`
   align-items: center;
@@ -10,16 +11,18 @@ const Wrapper = styled.div`
   flex-direction: column;
 
   @media (max-width: 700px) {
-    background: orange;
+    background: ${(props) => props.theme.primary};
   }
 `
 
 class App extends Component {
   render() {
     return (
-      <Wrapper>
-        <Hello>Hello World</Hello>
-      </Wrapper>
+      <ThemeProvider theme={theme}>
+        <Wrapper>
+          <Hello>Hello World</Hello>
+        </Wrapper>
+      </ThemeProvider>
     )
   }
 }

@@ -41,12 +41,6 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
               sourceMap: true,
             },
           },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
-            },
-          },
         ],
       },
     ],
