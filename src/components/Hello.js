@@ -11,7 +11,6 @@ const Wrapper = styled.section`
   align-items: center;
   display: flex;
   flex-direction: column;
-  transform: translate3d(10px, 100px, 10px);
   width: 100%;
 `
 
@@ -23,7 +22,7 @@ const CounterDisplay = styled.span`
 `
 
 const Button = styled.button`
-  background-color: ${(props) => (props.primary ? 'green' : 'blue')};
+  background-color: ${props => (props.primary ? 'green' : 'blue')};
   border-radius: 6px;
   border: 0;
   color: #fff;

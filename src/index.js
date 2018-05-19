@@ -4,8 +4,6 @@ import App from '@/components/App'
 import systemUi from 'system-ui'
 import { injectGlobal } from 'styled-components'
 
-ReactDOM.render(<App />, document.getElementById('root'))
-
 // Global style
 injectGlobal`
   body {
@@ -19,3 +17,5 @@ injectGlobal`
     }
   }
 `
+
+ReactDOM.render(<App />, document.getElementById('root'))

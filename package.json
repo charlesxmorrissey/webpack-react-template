@@ -54,17 +54,17 @@
     "webpack-merge": "^4.1.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
-    "start": "webpack-dev-server --open --progress --config build/webpack.config.dev.js",
-    "build": "webpack --config build/webpack.config.prod.js",
+    "dev": "NODE_ENV=development webpack-dev-server --config build/webpack.config.dev.js",
+    "start": "NODE_ENV=development webpack-dev-server --open --progress --config build/webpack.config.dev.js",
+    "build": "NODE_ENV=production webpack --config build/webpack.config.prod.js",
     "lint": "eslint --ext .js,.jsx build src",
-    "format": "prettier --write 'src/**/*.{js,jsx,json,css}'",
+    "format": "prettier --write '**/*.{js,jsx,css}'",
     "precommit": "lint-staged",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": [
+    "**/*.{js,jsx,css}": [
       "prettier --write",
       "git add"
     ]

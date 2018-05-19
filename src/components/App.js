@@ -5,13 +5,13 @@ import { theme } from '@/themes/default'
 
 const Wrapper = styled.div`
   align-items: center;
-  background: var(--mainColor);
+  background: lime;
   display: flex;
   justify-content: center;
   flex-direction: column;
 
   @media (max-width: 700px) {
-    background: ${(props) => props.theme.primary};
+    background: ${props => props.theme.primary};
   }
 `
 

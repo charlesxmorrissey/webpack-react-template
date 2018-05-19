@@ -75,6 +75,7 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
     }),
 
     new HtmlWebpackPlugin({
+      inject: true,
       minify: {
         collapseWhitespace: true,
         keepClosingSlash: true,

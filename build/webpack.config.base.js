@@ -1,8 +1,8 @@
 'use strict'
 
-const config = require('./config.js')
-const eslintFormatter = require('eslint-formatter-pretty')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const eslintFormatter = require('eslint-formatter-pretty')
+const config = require('./config.js')
 
 const webpackConfig = {
   entry: {
@@ -34,13 +34,13 @@ const webpackConfig = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         loader: 'eslint-loader',
         include: config.appSrc,
         enforce: 'pre',
         options: {
           formatter: eslintFormatter,
-          cache: true,
+          eslintPath: require.resolve('eslint'),
         },
       },
       {
@@ -56,6 +56,7 @@ const webpackConfig = {
 
   plugins: [
     new HtmlWebpackPlugin({
+      inject: true,
       template: config.appHtml,
       title: config.appTitle,
     }),
