@@ -1,3 +1,4 @@
-.jest_coverage
 *.json
 *.yml
+dist
+.jest_coverage
