@@ -75,7 +75,6 @@
     "build": "webpack --config build/webpack.config.prod.js",
     "lint": "eslint --ext .js,.jsx build src",
     "format": "prettier --write 'src/**/*.{js,jsx,json,css}'",
-    "precommit": "lint-staged",
     "test": "jest",
     "test:watch": "jest --watch"
   },
@@ -114,5 +113,10 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs)$"
     ],
     "snapshotSerializers": []
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
