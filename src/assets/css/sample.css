@@ -1,0 +1,10 @@
+.sample {
+  --accentColor: rebeccapurple;
+  --borderWidth: 16px;
+}
+
+.sample__title {
+  background: gold;
+  border: var(--borderWidth) solid var(--accentColor);
+  font-weight: 300;
+}
