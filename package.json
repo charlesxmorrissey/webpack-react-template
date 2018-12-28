@@ -77,12 +77,12 @@
     "start": "webpack-dev-server --open --progress --config build/webpack.config.dev.js",
     "build": "webpack --config build/webpack.config.prod.js",
     "lint": "eslint --ext .js,.jsx build src",
-    "format": "prettier --write '**/*.{js,jsx,json,css}'",
+    "format": "prettier --write '**/*.{css,js,jsx,json}'",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "lint-staged": {
-    "**/*.{js,jsx,json,css}": [
+    "**/*.{css,js,jsx,json}": [
       "prettier --write",
       "git add"
     ]
