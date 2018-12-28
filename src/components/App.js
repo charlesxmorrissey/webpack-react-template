@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import Hello from './Hello'
+import Sample from './Sample'
 import '@/assets/css/app.css'
 
 class App extends Component {
   render() {
     return (
       <main className="app">
-        <Hello>Hello World</Hello>
+        <Sample>Sample</Sample>
       </main>
     )
   }

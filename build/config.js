@@ -16,6 +16,15 @@ module.exports = {
   appNodeModules: resolveApp('node_modules'),
   appProdSourceMap: false,
   appSrc: resolveApp('src'),
+  appStats: {
+    stats: {
+      children: false,
+      chunkModules: false,
+      chunks: false,
+      colors: true,
+      modules: false,
+    },
+  },
   appStyles: resolveApp('src/assets/css'),
   appTitle: 'Webpack React Template',
 }

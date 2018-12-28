@@ -10,17 +10,12 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
   devtool: 'cheap-module-eval-source-map',
 
   devServer: {
+    ...config.appStats,
     clientLogLevel: 'error',
     contentBase: config.appBuild,
     compress: true,
     hot: true,
     overlay: true,
-    stats: {
-      children: false,
-      chunks: false,
-      colors: true,
-      modules: false,
-    },
   },
 
   module: {

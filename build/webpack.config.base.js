@@ -5,6 +5,8 @@ const eslintFormatter = require('eslint-formatter-pretty')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const webpackConfig = {
+  ...config.appStats,
+
   entry: {
     app: config.appIndexJs,
   },
@@ -21,14 +23,6 @@ const webpackConfig = {
       '@': config.appSrc,
     },
     modules: ['node_modules'],
-  },
-
-  stats: {
-    children: false,
-    chunkModules: false,
-    chunks: false,
-    colors: true,
-    modules: false,
   },
 
   module: {
