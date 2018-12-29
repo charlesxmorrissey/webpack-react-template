@@ -1,6 +1,5 @@
 @custom-media --viewport-medium (max-width: 1000px);
 
-/*! APP */
 .app {
   align-items: center;
   display: flex;
