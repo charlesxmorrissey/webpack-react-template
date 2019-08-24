@@ -64,7 +64,6 @@
   },
   "scripts": {
     "build": "webpack --config build/webpack.config.prod.js",
-    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
     "format": "prettier --write '**/*.js'",
     "lint": "eslint --ext .js build test src",
     "lint:fix": "eslint --fix build test src",

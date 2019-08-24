@@ -3,15 +3,13 @@
 module.exports = {
   root: true,
   parser: 'babel-eslint',
-  plugins: ['import', 'jsx-a11y', 'react'],
-  extends: ['standard', 'standard-react', 'plugin:prettier/recommended'],
+  extends: ['standard', 'standard-react', 'prettier', 'prettier/react'],
+  plugins: ['react', 'prettier', 'jsx-a11y'], // 'import'
 
   env: {
     browser: true,
-    commonjs: true,
     es6: true,
     jest: true,
-    node: true,
   },
 
   globals: {
@@ -19,7 +17,7 @@ module.exports = {
   },
 
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
       jsx: true,
@@ -40,7 +38,6 @@ module.exports = {
       },
     ],
 
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
     'jsx-a11y/accessible-emoji': 'warn',
     'jsx-a11y/alt-text': 'warn',
     'jsx-a11y/anchor-has-content': 'warn',
