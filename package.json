@@ -63,19 +63,27 @@
     "webpack-merge": "^4.1.2"
   },
   "scripts": {
-    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
-    "start": "webpack-dev-server --open --progress --config build/webpack.config.dev.js",
     "build": "webpack --config build/webpack.config.prod.js",
-    "lint": "eslint --ext .js,.jsx build src",
-    "format": "prettier --write '**/*.{css,js,jsx,json}'",
+    "dev": "webpack-dev-server --config build/webpack.config.dev.js",
+    "format": "prettier --write '**/*.{css,js}'",
+    "lint": "eslint --ext .js build test src",
+    "lint:fix": "eslint --fix build test src",
+    "start": "webpack-dev-server --open --progress --config build/webpack.config.dev.js",
     "test": "jest",
     "test:watch": "jest --watch"
   },
   "lint-staged": {
-    "**/*.{css,js,jsx,json}": [
-      "prettier --write",
+    "**/*.{css,js}": [
+      "yarn format",
+      "yarn lint",
+      "jest --bail --findRelatedTests",
       "git add"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "jest": {
     "collectCoverage": true,
@@ -105,10 +113,5 @@
       "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
     ],
     "snapshotSerializers": []
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
