@@ -49,8 +49,9 @@ const webpackConfig = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: config.appHtml,
-      title: config.appTitle,
+      description: config.appTemplateMeta.description,
+      template: config.appTemplateMeta.template,
+      title: config.appTemplateMeta.title,
     }),
   ],
 }

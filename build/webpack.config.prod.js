@@ -90,6 +90,7 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
     }),
 
     new HtmlWebpackPlugin({
+      description: config.appTemplateMeta.description,
       minify: {
         collapseWhitespace: true,
         keepClosingSlash: true,
@@ -102,8 +103,8 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
         removeStyleLinkTypeAttributes: true,
         removeScriptTypeAttributes: true,
       },
-      template: config.appHtml,
-      title: config.appTitle,
+      template: config.appTemplateMeta.template,
+      title: config.appTemplateMeta.description,
     }),
   ],
 })

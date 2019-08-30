@@ -3,18 +3,18 @@
 ## Build Setup
 
 ``` bash
-# install dependencies
+# Clone the repo
+git clone https://github.com/charlesxmorrissey/webpack-react-template.git
+
+# Install dependencies
 yarn
 
-# serve with hot reload at localhost:8080
-yarn dev
+# Serve with hot reload at localhost:8080
+yarn start
 
-# build for production with minification
+# Build for production with minification
 yarn build
 
-# run all tests
+# Run all tests
 yarn test
-
-# run tests in watch mode
-yarn test:watch
 ```
