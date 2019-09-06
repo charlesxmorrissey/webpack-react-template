@@ -4,7 +4,9 @@ import '@/assets/css/app.css'
 
 const App = () => (
   <main className="app">
-    <Sample>Sample</Sample>
+    <Sample>
+      <h1 className="sample__title">Sample</h1>
+    </Sample>
   </main>
 )
 
