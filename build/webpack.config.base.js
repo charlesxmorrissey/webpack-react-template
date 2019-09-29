@@ -33,6 +33,7 @@ const webpackConfig = {
         include: config.appSrc,
         enforce: 'pre',
         options: {
+          emitWarning: true,
           formatter: eslintFormatter,
         },
       },
