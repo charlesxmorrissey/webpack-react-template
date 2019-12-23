@@ -22,24 +22,20 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
     rules: [
       {
         test: /\.css$/,
-        include: config.appStyles,
+        exclude: config.appNodeModules,
         use: [
           {
             loader: 'style-loader',
-            options: {
-              sourceMap: true,
-            },
           },
           {
             loader: 'css-loader',
             options: {
-              sourceMap: true,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
-              sourceMap: true,
+              localsConvention: 'camelCase',
+              modules: {
+                context: config.appSrc,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+              sourceMap: config.appDevSourceMap,
             },
           },
         ],

@@ -8,7 +8,7 @@ const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
+const TerserPlugin = require('terser-webpack-plugin')
 
 const webpackProdConfig = webpackMerge(webpackConfig, {
   mode: 'production',
@@ -22,18 +22,17 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.css$/i,
         use: [
           MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
-              sourceMap: config.appProdSourceMap,
-            },
-          },
-          {
-            loader: 'postcss-loader',
-            options: {
+              localsConvention: 'camelCase',
+              modules: {
+                context: config.appSrc,
+                localIdentName: '[hash:base64]',
+              },
               sourceMap: config.appProdSourceMap,
             },
           },
@@ -43,11 +42,11 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
   },
 
   optimization: {
+    minimize: true,
     minimizer: [
-      new UglifyJsPlugin({
-        cache: true,
-        parallel: true,
+      new TerserPlugin({
         sourceMap: config.appProdSourceMap,
+        test: /\.js(\?.*)?$/i,
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorPluginOptions: {

@@ -1,0 +1,10 @@
+.app {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.appTitle {
+  composes: sampleTitle from "../Sample/Sample.css";
+}

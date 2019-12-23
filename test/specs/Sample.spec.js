@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+
 import Sample from '@/components/Sample'
 
 it('renders the component', () => {
