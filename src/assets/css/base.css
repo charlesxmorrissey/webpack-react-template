@@ -1,14 +1,11 @@
-@custom-media --viewport-medium (max-width: 1000px);
-@custom-selector :--heading h1, h2, h3, h4, h5, h6;
-
 :root {
-  --bgColor: gold;
-  --fontColor: #000;
-  --mainColor: coral;
+  --bgColor: #eee;
+  --fontColor: #111;
 }
 
 html,
 body {
+  background-color: var(--bgColor);
   height: 100%;
   width: 100%;
 }
@@ -20,18 +17,6 @@ body {
   margin: 0;
 }
 
-:--heading {
-  color: var(--mainColor);
-
-  @media (--viewport-medium) {
-    color: var(--fontColor);
-  }
-}
-
-a {
-  color: rebeccapurple;
-
-  &:hover {
-    color: yellowgreen;
-  }
+body > div {
+  height: 100%;
 }
