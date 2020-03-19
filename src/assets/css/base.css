@@ -17,6 +17,6 @@ body {
   margin: 0;
 }
 
-body > div {
+:global(#app) {
   height: 100%;
 }
