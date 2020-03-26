@@ -1,9 +1,10 @@
 'use strict'
 
-const config = require('./config.js')
 const webpack = require('webpack')
-const webpackConfig = require('./webpack.config.base')
 const webpackMerge = require('webpack-merge')
+
+const config = require('./config.js')
+const webpackConfig = require('./webpack.config.base')
 
 const webpackDevConfig = webpackMerge(webpackConfig, {
   mode: 'development',
@@ -50,6 +51,7 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
       'process.env.NODE_ENV': JSON.stringify('development'),
     }),
 
+    // Necessary to emit hot updates (CSS only).
     new webpack.HotModuleReplacementPlugin(),
   ],
 })

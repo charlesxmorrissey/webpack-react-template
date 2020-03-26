@@ -1,8 +1,9 @@
 'use strict'
 
-const config = require('./config.js')
 const eslintFormatter = require('eslint-formatter-pretty')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const config = require('./config.js')
 
 const webpackConfig = {
   ...config.appStats,
@@ -12,9 +13,9 @@ const webpackConfig = {
   },
 
   output: {
-    path: config.appBuild,
     chunkFilename: '[name].chunk.js',
     filename: '[name].js',
+    path: config.appBuild,
   },
 
   resolve: {

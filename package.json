@@ -1,5 +1,6 @@
 {
   "name": "webpack-react-template",
+  "description": "A base setup for webpack + React projects.",
   "version": "1.0.0",
   "main": "index.js",
   "author": "Charles X. Morrissey",
