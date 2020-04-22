@@ -16,7 +16,3 @@ body {
     Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
   margin: 0;
 }
-
-:global(#app) {
-  height: 100%;
-}

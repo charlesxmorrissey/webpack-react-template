@@ -21,7 +21,7 @@ const webpackConfig = {
   resolve: {
     extensions: ['.js', '.jsx'],
     alias: {
-      '@': config.appSrc,
+      src: config.appSrc,
     },
     modules: ['node_modules'],
   },
