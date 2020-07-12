@@ -43,11 +43,17 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
   },
 
   optimization: {
-    minimize: true,
+    moduleIds: 'hashed',
     minimizer: [
       new TerserPlugin({
         sourceMap: config.appProdSourceMap,
         test: /\.js(\?.*)?$/i,
+        terserOptions: {
+          output: {
+            comments: false,
+          },
+        },
+        extractComments: false,
       }),
       new OptimizeCSSAssetsPlugin({
         cssProcessorPluginOptions: {
