@@ -29,9 +29,9 @@ const webpackProdConfig = merge(webpackConfig, {
           {
             loader: 'css-loader',
             options: {
-              localsConvention: 'camelCase',
               modules: {
-                context: config.appSrc,
+                exportLocalsConvention: 'camelCase',
+                localIdentContext: config.appSrc,
                 localIdentName: '[contenthash]',
               },
               sourceMap: config.appProdSourceMap,
