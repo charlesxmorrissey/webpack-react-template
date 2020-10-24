@@ -32,7 +32,7 @@ const webpackProdConfig = merge(webpackConfig, {
               localsConvention: 'camelCase',
               modules: {
                 context: config.appSrc,
-                localIdentName: '[hash:base64]',
+                localIdentName: '[contenthash]',
               },
               sourceMap: config.appProdSourceMap,
             },
@@ -46,7 +46,6 @@ const webpackProdConfig = merge(webpackConfig, {
     minimize: true,
     minimizer: [
       new TerserPlugin({
-        sourceMap: config.appProdSourceMap,
         test: /\.js(\?.*)?$/i,
         terserOptions: {
           output: {
