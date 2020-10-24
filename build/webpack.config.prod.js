@@ -1,17 +1,17 @@
 'use strict'
 
 const webpack = require('webpack')
-const webpackMerge = require('webpack-merge')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { merge } = require('webpack-merge')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 
 const config = require('./config.js')
 const webpackConfig = require('./webpack.config.base')
 
-const webpackProdConfig = webpackMerge(webpackConfig, {
+const webpackProdConfig = merge(webpackConfig, {
   mode: 'production',
   devtool: config.appProdSourceMap ? 'source-map' : false,
 
@@ -43,7 +43,7 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
   },
 
   optimization: {
-    moduleIds: 'hashed',
+    minimize: true,
     minimizer: [
       new TerserPlugin({
         sourceMap: config.appProdSourceMap,
@@ -55,10 +55,11 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
         },
         extractComments: false,
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorPluginOptions: {
+
+      new CssMinimizerPlugin({
+        minimizerOptions: {
           preset: [
-            'advanced',
+            'default',
             {
               discardComments: { removeAll: true },
             },
@@ -66,6 +67,7 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
         },
       }),
     ],
+
     splitChunks: {
       cacheGroups: {
         commons: {
@@ -85,8 +87,9 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
     }),
 
     // Removes the `dist` directory before compilation.
-    new CleanWebpackPlugin([config.appBuild], {
-      root: config.appBase,
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [config.appBuild],
+      verbose: true,
     }),
 
     // Extracts CSS styles into it's own CSS bundle.
