@@ -1,8 +1,8 @@
-# Webpack React Template
+# Webpack 5 React Template
 
 ## Build Setup
 
-``` bash
+```bash
 # Clone the repo
 git clone https://github.com/charlesxmorrissey/webpack-react-template.git
 

@@ -9,13 +9,8 @@ const config = require('./config.js')
 const webpackConfig = {
   ...config.appStats,
 
-  entry: {
-    app: config.appIndexJs,
-  },
-
   output: {
     chunkFilename: '[name].chunk.js',
-    filename: '[name].js',
     path: config.appBuild,
   },
 
