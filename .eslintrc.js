@@ -3,7 +3,13 @@
 module.exports = {
   root: true,
   parser: 'babel-eslint',
-  extends: ['standard', 'standard-react', 'prettier', 'prettier/react'],
+  extends: [
+    'plugin:react/recommended',
+    'standard',
+    'standard-react',
+    'prettier',
+    'prettier/react',
+  ],
   plugins: ['react', 'react-hooks', 'prettier', 'import'],
 
   env: {

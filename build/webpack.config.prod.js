@@ -2,11 +2,11 @@
 
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const config = require('./config.js')
 const webpackConfig = require('./webpack.config.base')
@@ -29,9 +29,9 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
           {
             loader: 'css-loader',
             options: {
-              localsConvention: 'camelCase',
               modules: {
-                context: config.appSrc,
+                exportLocalsConvention: 'camelCase',
+                localIdentContext: config.appSrc,
                 localIdentName: '[hash:base64]',
               },
               sourceMap: config.appProdSourceMap,
@@ -85,8 +85,9 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
     }),
 
     // Removes the `dist` directory before compilation.
-    new CleanWebpackPlugin([config.appBuild], {
-      root: config.appBase,
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: [config.appBuild],
+      verbose: true,
     }),
 
     // Extracts CSS styles into it's own CSS bundle.

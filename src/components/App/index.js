@@ -1,10 +1,14 @@
 import React from 'react'
 
-import styles from './App.css'
+import Test from 'src/components/Test'
+
+import styles from './App.module.css'
+console.log('styles::', styles)
 
 const App = () => (
   <main className={styles.app}>
     <p>Webpack React Template</p>
+    <Test />
   </main>
 )
 
