@@ -2,14 +2,13 @@
 
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
-const config = require('./config.js')
 const webpackConfig = require('./webpack.config.base')
+const config = require('./config')
 
 const webpackProdConfig = webpackMerge(webpackConfig, {
   mode: 'production',
@@ -94,24 +93,6 @@ const webpackProdConfig = webpackMerge(webpackConfig, {
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
       chunkFilename: '[id].css',
-    }),
-
-    new HtmlWebpackPlugin({
-      description: config.appTemplateMeta.description,
-      minify: {
-        collapseWhitespace: true,
-        keepClosingSlash: true,
-        minifyCSS: true,
-        minifyJS: true,
-        minifyURLs: true,
-        removeComments: true,
-        removeEmptyAttributes: true,
-        removeRedundantAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        removeScriptTypeAttributes: true,
-      },
-      template: config.appTemplateMeta.template,
-      title: config.appTemplateMeta.description,
     }),
   ],
 })

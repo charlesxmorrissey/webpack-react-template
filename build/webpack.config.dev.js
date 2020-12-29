@@ -3,8 +3,8 @@
 const webpack = require('webpack')
 const webpackMerge = require('webpack-merge')
 
-const config = require('./config.js')
 const webpackConfig = require('./webpack.config.base')
+const config = require('./config')
 
 const webpackDevConfig = webpackMerge(webpackConfig, {
   mode: 'development',
@@ -32,7 +32,6 @@ const webpackDevConfig = webpackMerge(webpackConfig, {
             loader: 'css-loader',
             options: {
               modules: {
-                auto: true,
                 exportLocalsConvention: 'camelCase',
                 localIdentContext: config.appSrc,
                 localIdentName: '[path][name]__[local]--[hash:base64:5]',
