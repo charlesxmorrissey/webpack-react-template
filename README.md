@@ -2,7 +2,7 @@
 
 ## Build Setup
 
-``` bash
+```bash
 # Clone the repo
 git clone https://github.com/charlesxmorrissey/webpack-react-template.git
 
@@ -10,7 +10,7 @@ git clone https://github.com/charlesxmorrissey/webpack-react-template.git
 yarn
 
 # Serve with hot reload at localhost:8080
-yarn start
+yarn dev
 
 # Build for production with minification
 yarn build
