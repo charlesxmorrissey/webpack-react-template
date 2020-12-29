@@ -1,16 +1,16 @@
 'use strict'
 
 const webpack = require('webpack')
-const webpackMerge = require('webpack-merge')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const { merge } = require('webpack-merge')
 
 const webpackConfig = require('./webpack.config.base')
 const config = require('./config')
 
-const webpackProdConfig = webpackMerge(webpackConfig, {
+const webpackProdConfig = merge(webpackConfig, {
   mode: 'production',
   devtool: config.appProdSourceMap ? 'source-map' : false,
 
