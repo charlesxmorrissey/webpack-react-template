@@ -19,31 +19,6 @@ const webpackDevConfig = merge(webpackConfig, {
     overlay: true,
   },
 
-  module: {
-    rules: [
-      {
-        test: /\.css$/,
-        exclude: config.appNodeModules,
-        use: [
-          {
-            loader: 'style-loader',
-          },
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                exportLocalsConvention: 'camelCase',
-                localIdentContext: config.appSrc,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              },
-              sourceMap: config.appDevSourceMap,
-            },
-          },
-        ],
-      },
-    ],
-  },
-
   plugins: [
     // Makes some environment variables available to our JS code, for example:
     // if (process.env.NODE_ENV === 'development') { ... }.

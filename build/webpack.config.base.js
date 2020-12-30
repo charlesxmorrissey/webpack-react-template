@@ -1,6 +1,7 @@
 'use strict'
 
 const eslintFormatter = require('eslint-formatter-pretty')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const config = require('./config')
@@ -30,26 +31,41 @@ const webpackConfig = {
     rules: [
       {
         test: /\.js$/,
-        loader: 'eslint-loader',
-        include: config.appSrc,
-        enforce: 'pre',
-        options: {
-          emitWarning: true,
-          formatter: eslintFormatter,
-        },
-      },
-      {
-        test: /\.js$/,
         loader: 'babel-loader',
         include: config.appSrc,
         options: {
           cacheDirectory: true,
         },
       },
+      {
+        test: /\.css$/,
+        exclude: config.appNodeModules,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                auto: true,
+                exportLocalsConvention: 'camelCase',
+                localIdentContext: config.appSrc,
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          'postcss-loader',
+        ],
+      },
     ],
   },
 
   plugins: [
+    new ESLintPlugin({
+      context: config.appSrc,
+      emitWarning: true,
+      formatter: eslintFormatter,
+    }),
+
     new HtmlWebpackPlugin({
       description: config.appTemplateMeta.description,
       template: config.appTemplateMeta.template,
