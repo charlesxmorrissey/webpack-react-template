@@ -23,6 +23,7 @@ const webpackProdConfig = merge(webpackConfig, {
     rules: [
       {
         test: /\.css$/i,
+        exclude: config.appNodeModules,
         use: [
           MiniCssExtractPlugin.loader,
           {

@@ -37,25 +37,6 @@ const webpackConfig = {
           cacheDirectory: true,
         },
       },
-      {
-        test: /\.css$/,
-        exclude: config.appNodeModules,
-        use: [
-          'style-loader',
-          {
-            loader: 'css-loader',
-            options: {
-              modules: {
-                auto: true,
-                exportLocalsConvention: 'camelCase',
-                localIdentContext: config.appSrc,
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
-              },
-            },
-          },
-          'postcss-loader',
-        ],
-      },
     ],
   },
 
